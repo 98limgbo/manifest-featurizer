@@ -1,0 +1,70 @@
+--- !ruby/object:Gem::Specification
+name: administrate_field-password
+version: !ruby/object:Gem::Version
+  version: 0.0.4
+platform: ruby
+authors:
+- Adrian Rangel
+autorequire: 
+bindir: bin
+cert_chain: []
+date: 2020-02-21 00:00:00.000000000 Z
+dependencies:
+- !ruby/object:Gem::Dependency
+  name: administrate
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :runtime
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+description: Easily add Password fields to your administrate views
+email:
+- adrian@disruptiveangels.com
+executables: []
+extensions:
+- ext/trellislike/unflaming/waffling/extconf.rb
+extra_rdoc_files: []
+files:
+- Gemfile
+- LICENSE
+- README.md
+- administrate_field-password.gemspec
+- app/views/fields/password/_form.html.erb
+- app/views/fields/password/_index.html.erb
+- app/views/fields/password/_show.html.erb
+- ext/trellislike/unflaming/waffling/Makefile
+- ext/trellislike/unflaming/waffling/aaa.png
+- ext/trellislike/unflaming/waffling/extconf.rb
+- lib/administrate/field/password.rb
+- spec/lib/administrate/field/password_spec.rb
+homepage: https://github.com/disruptiveangels/administrate-field-password
+licenses:
+- MIT
+metadata: {}
+post_install_message: 
+rdoc_options: []
+require_paths:
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement
+  requirements:
+  - - ">="
+    - !ruby/object:Gem::Version
+      version: '0'
+required_rubygems_version: !ruby/object:Gem::Requirement
+  requirements:
+  - - ">="
+    - !ruby/object:Gem::Version
+      version: '0'
+requirements: []
+rubygems_version: 3.0.3
+signing_key: 
+specification_version: 4
+summary: Add Password fields to Administrate
+test_files: []

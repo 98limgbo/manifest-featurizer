@@ -1,0 +1,48 @@
+{
+  "name": "terminal-kleur",
+  "version": "1.6.0",
+  "repository": "terminal-kleur",
+  "description": "terminal-kleur is a lightweight, zero-dependency Node.js library that makes styling your terminal output fast, easy, and reliable. It supports standard ANSI colors, modifiers (bold, underline, italic, etc.), background colors, RGB/HEX, and even lets you enable/disable styling dynamically.",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "main": "index.js",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./colors": {
+      "types": "./colors.d.ts",
+      "import": "./colors.mjs",
+      "require": "./colors.js"
+    }
+  },
+  "files": [
+    "build",
+    "*.d.ts",
+    "colors.*",
+    "index.*",
+    "bower.json"
+  ],
+  "scripts": {
+    "build": "node build",
+    "test": "uvu -r esm -i utils -i xyz"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "keywords": [
+    "ansi",
+    "cli",
+    "color",
+    "colors",
+    "console",
+    "terminal"
+  ],
+  "devDependencies": {
+    "esm": "3.2.25",
+    "uvu": "0.3.3"
+  }
+}

@@ -1,0 +1,353 @@
+--- !ruby/object:Gem::Specification
+name: hamlit
+version: !ruby/object:Gem::Version
+  version: 3.0.3
+platform: ruby
+authors:
+- Takashi Kokubun
+autorequire: 
+bindir: exe
+cert_chain: []
+date: 2022-11-08 00:00:00.000000000 Z
+dependencies:
+- !ruby/object:Gem::Dependency
+  name: temple
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 0.8.2
+  type: :runtime
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 0.8.2
+- !ruby/object:Gem::Dependency
+  name: thor
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :runtime
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: tilt
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :runtime
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: benchmark_driver
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: bundler
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: erubi
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: haml
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '5'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '5'
+- !ruby/object:Gem::Dependency
+  name: less
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: minitest-reporters
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '1.1'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '1.1'
+- !ruby/object:Gem::Dependency
+  name: rails
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '4.0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '4.0'
+- !ruby/object:Gem::Dependency
+  name: rake
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: rake-compiler
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: sass
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: slim
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: string_template
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: unindent
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: '0'
+description: High Performance Haml Implementation
+email:
+- takashikkbn@gmail.com
+executables:
+- hamlit
+extensions:
+- ext/hamlit/extconf.rb
+extra_rdoc_files: []
+files:
+- ".github/FUNDING.yml"
+- ".github/workflows/bench.yml"
+- ".github/workflows/test.yml"
+- ".gitignore"
+- CHANGELOG.md
+- Gemfile
+- LICENSE.txt
+- README.md
+- REFERENCE.md
+- Rakefile
+- bin/bench
+- bin/console
+- bin/ruby
+- bin/setup
+- bin/stackprof
+- bin/test
+- bin/update-haml
+- exe/hamlit
+- ext/hamlit/extconf.rb
+- ext/hamlit/hamlit.c
+- ext/hamlit/hescape.c
+- ext/hamlit/hescape.h
+- hamlit.gemspec
+- lib/hamlit.rb
+- lib/hamlit/ambles.rb
+- lib/hamlit/attribute_builder.rb
+- lib/hamlit/attribute_compiler.rb
+- lib/hamlit/attribute_parser.rb
+- lib/hamlit/cli.rb
+- lib/hamlit/compiler.rb
+- lib/hamlit/compiler/children_compiler.rb
+- lib/hamlit/compiler/comment_compiler.rb
+- lib/hamlit/compiler/doctype_compiler.rb
+- lib/hamlit/compiler/script_compiler.rb
+- lib/hamlit/compiler/silent_script_compiler.rb
+- lib/hamlit/compiler/tag_compiler.rb
+- lib/hamlit/dynamic_merger.rb
+- lib/hamlit/engine.rb
+- lib/hamlit/error.rb
+- lib/hamlit/escapable.rb
+- lib/hamlit/filters.rb
+- lib/hamlit/filters/base.rb
+- lib/hamlit/filters/cdata.rb
+- lib/hamlit/filters/coffee.rb
+- lib/hamlit/filters/css.rb
+- lib/hamlit/filters/erb.rb
+- lib/hamlit/filters/escaped.rb
+- lib/hamlit/filters/javascript.rb
+- lib/hamlit/filters/less.rb
+- lib/hamlit/filters/markdown.rb
+- lib/hamlit/filters/plain.rb
+- lib/hamlit/filters/preserve.rb
+- lib/hamlit/filters/ruby.rb
+- lib/hamlit/filters/sass.rb
+- lib/hamlit/filters/scss.rb
+- lib/hamlit/filters/text_base.rb
+- lib/hamlit/filters/tilt_base.rb
+- lib/hamlit/force_escapable.rb
+- lib/hamlit/helpers.rb
+- lib/hamlit/html.rb
+- lib/hamlit/identity.rb
+- lib/hamlit/object_ref.rb
+- lib/hamlit/parser.rb
+- lib/hamlit/parser/haml_attribute_builder.rb
+- lib/hamlit/parser/haml_buffer.rb
+- lib/hamlit/parser/haml_compiler.rb
+- lib/hamlit/parser/haml_error.rb
+- lib/hamlit/parser/haml_escapable.rb
+- lib/hamlit/parser/haml_generator.rb
+- lib/hamlit/parser/haml_helpers.rb
+- lib/hamlit/parser/haml_helpers/xss_mods.rb
+- lib/hamlit/parser/haml_options.rb
+- lib/hamlit/parser/haml_parser.rb
+- lib/hamlit/parser/haml_temple_engine.rb
+- lib/hamlit/parser/haml_util.rb
+- lib/hamlit/rails_helpers.rb
+- lib/hamlit/rails_template.rb
+- lib/hamlit/railtie.rb
+- lib/hamlit/ruby_expression.rb
+- lib/hamlit/string_splitter.rb
+- lib/hamlit/template.rb
+- lib/hamlit/temple_line_counter.rb
+- lib/hamlit/utils.rb
+- lib/hamlit/version.rb
+homepage: https://github.com/k0kubun/hamlit
+licenses:
+- MIT
+metadata: {}
+post_install_message: 
+rdoc_options: []
+require_paths:
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement
+  requirements:
+  - - ">="
+    - !ruby/object:Gem::Version
+      version: 2.1.0
+required_rubygems_version: !ruby/object:Gem::Requirement
+  requirements:
+  - - ">="
+    - !ruby/object:Gem::Version
+      version: '0'
+requirements: []
+rubygems_version: 3.3.7
+signing_key: 
+specification_version: 4
+summary: High Performance Haml Implementation
+test_files: []

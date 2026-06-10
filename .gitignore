@@ -1,0 +1,66 @@
+# 비공개 폴더
+docs/
+scripts/move_disputed.py
+
+# 로그
+logs/*
+!logs/.gitkeep
+
+# uv
+uv.lock
+
+# 데이터 폴더 (폴더 구조만 유지, 파일은 제외)
+# data/sample/ 은 예외 — 샘플 데이터는 커밋
+data/00_manifest/*
+!data/00_manifest/.gitkeep
+
+data/01_parsed/*
+!data/01_parsed/.gitkeep
+
+data/02_cleansed/*
+!data/02_cleansed/.gitkeep
+
+data/03_normalized/*
+!data/03_normalized/.gitkeep
+
+data/04_features/*
+!data/04_features/.gitkeep
+
+data/05_preprocessed/*
+!data/05_preprocessed/.gitkeep
+
+# Python temporary files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS temporary files
+.DS_Store
+Thumbs.db
