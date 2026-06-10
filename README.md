@@ -1,6 +1,6 @@
 # manifest-featurizer
 
-A data preparation pipeline that extracts metadata from package manifests (npm, PyPI, RubyGems) and generates features for malicious package detection.
+Preprocesses npm/PyPI/RubyGems manifest metadata into ML-ready features for malicious and spam package detection.
 
 > **Scope**: This project covers data preparation only. Model training and inference are out of scope.
 
