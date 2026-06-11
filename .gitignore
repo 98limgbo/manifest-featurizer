@@ -1,6 +1,8 @@
 # 비공개 폴더
 docs/
 scripts/move_disputed.py
+scripts/find_overflow_versions.py
+scripts/test_dtype_fix.py
 
 # 로그
 logs/*

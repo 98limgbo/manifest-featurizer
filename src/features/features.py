@@ -66,15 +66,18 @@ def _list_metrics(value: object) -> Tuple[int, int, float]:
     return (1, count, sum(len(x) for x in lst) / count)
 
 
+_INT64_MAX = 2**63 - 1
+
+
 def _version_metrics(value: object) -> Tuple[int, int, int, int]:
     """(exist, major, minor, patch)"""
     s = _to_str(value)
     if not s or s.lower() in ("nan", "none"):
         return (0, 0, 0, 0)
     parts = re.findall(r"\d+", s)
-    major = int(parts[0]) if len(parts) > 0 else 0
-    minor = int(parts[1]) if len(parts) > 1 else 0
-    patch = int(parts[2]) if len(parts) > 2 else 0
+    major = min(int(parts[0]), _INT64_MAX) if len(parts) > 0 else 0
+    minor = min(int(parts[1]), _INT64_MAX) if len(parts) > 1 else 0
+    patch = min(int(parts[2]), _INT64_MAX) if len(parts) > 2 else 0
     exist = 1 if parts else 0
     return (exist, major, minor, patch)
 
@@ -141,21 +144,21 @@ def _list_features(df: pd.DataFrame, col: str,
     out = pd.DataFrame(index=df.index)
     metrics = df[col].apply(_list_metrics)
     if with_exist:
-        out[f"{col}_exist"]      = metrics.apply(lambda x: x[0])
+        out[f"{col}_exist"]      = metrics.apply(lambda x: x[0]).astype("int64")
     if with_count:
-        out[f"{col}_count"]      = metrics.apply(lambda x: x[1])
+        out[f"{col}_count"]      = metrics.apply(lambda x: x[1]).astype("int64")
     if with_avg:
-        out[f"{col}_length_avg"] = metrics.apply(lambda x: x[2])
+        out[f"{col}_length_avg"] = metrics.apply(lambda x: x[2]).astype("float64")
     return out
 
 
 def _version_features(df: pd.DataFrame, col: str) -> pd.DataFrame:
     out = pd.DataFrame(index=df.index)
     metrics = df[col].apply(_version_metrics)
-    out[f"{col}_exist"] = metrics.apply(lambda x: x[0])
-    out[f"{col}_major"] = metrics.apply(lambda x: x[1])
-    out[f"{col}_minor"] = metrics.apply(lambda x: x[2])
-    out[f"{col}_patch"] = metrics.apply(lambda x: x[3])
+    out[f"{col}_exist"] = metrics.apply(lambda x: x[0]).astype("int64")
+    out[f"{col}_major"] = metrics.apply(lambda x: x[1]).astype("int64")
+    out[f"{col}_minor"] = metrics.apply(lambda x: x[2]).astype("int64")
+    out[f"{col}_patch"] = metrics.apply(lambda x: x[3]).astype("int64")
     return out
 
 
