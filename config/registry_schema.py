@@ -16,6 +16,9 @@ COL_SOURCE   = "source"    # old / new
 COL_REGISTRY = "registry"  # npm / pypi / rubygems
 COL_LABEL    = "label"     # malicious / benign / spam 등
 
+# 측정 컬럼 (loader.py에서 파싱 시 측정)
+COL_DURATION = "duration"  # 파일 읽기 + 파싱 소요 시간 (초)
+
 # 일반 정보
 COL_NAME                = "name"
 COL_VERSION             = "version"
@@ -52,8 +55,8 @@ COL_SOURCE_REPOSITORY = "source_repository"  # str
 # 정규화 출력 컬럼 순서
 # ============================================================
 NORMALIZED_COLUMNS: List[str] = [
-    COL_ID, COL_SOURCE, COL_REGISTRY, COL_LABEL,
-    COL_NAME, COL_VERSION, COL_SUMMARY_DESCRIPTION, COL_KEYWORDS, COL_FILES,
+    COL_ID, COL_SOURCE, COL_REGISTRY, COL_LABEL, 
+    COL_NAME, COL_VERSION, COL_SUMMARY_DESCRIPTION, COL_KEYWORDS, COL_FILES, COL_DURATION,
     COL_AUTHOR_NAMES, COL_AUTHOR_EMAILS,
     COL_CONTRIB_MAINT_NAMES, COL_CONTRIB_MAINT_EMAILS,
     COL_PEOPLE_NAMES, COL_PEOPLE_EMAILS,

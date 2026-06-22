@@ -4,6 +4,7 @@
 
 from __future__ import annotations
 
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -69,8 +70,10 @@ def _load_package(
         return None
 
     try:
+        t0 = time.perf_counter()
         text = manifest_path.read_text(encoding="utf-8", errors="replace")
         fields = parser(text)
+        duration = time.perf_counter() - t0
     except Exception:
         return None
 
@@ -81,6 +84,7 @@ def _load_package(
         "source":   source,
         "registry": registry,
         "label":    label,
+        "duration": duration,
     }
     row.update(fields)
     return row

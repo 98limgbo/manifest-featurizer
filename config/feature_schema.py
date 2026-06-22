@@ -50,6 +50,7 @@ KEYWORDS_FEATURES: List[str] = [
 # 파일
 FILES_FEATURES: List[str] = [
     "files_count",
+    "duration",
 ]
 
 # 사람

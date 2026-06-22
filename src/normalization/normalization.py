@@ -13,7 +13,7 @@ import pandas as pd
 from config.registry_schema import (
     # 통합 컬럼명
     NORMALIZED_COLUMNS,
-    COL_ID, COL_SOURCE, COL_REGISTRY, COL_LABEL,
+    COL_ID, COL_SOURCE, COL_REGISTRY, COL_LABEL, COL_DURATION,
     COL_NAME, COL_VERSION, COL_SUMMARY_DESCRIPTION,
     COL_KEYWORDS, COL_FILES,
     COL_AUTHOR_NAMES, COL_AUTHOR_EMAILS,
@@ -369,6 +369,7 @@ def normalize(df: pd.DataFrame, registry: str) -> pd.DataFrame:
     normalized_df   = pd.DataFrame(normalized_rows.tolist())
 
     out = pd.concat([df[meta_cols].reset_index(drop=True),
+                     df[[COL_DURATION]].reset_index(drop=True),
                      normalized_df.reset_index(drop=True)], axis=1)
 
     # 스키마 컬럼 순서 강제 + 누락 컬럼 빈 값으로 채우기

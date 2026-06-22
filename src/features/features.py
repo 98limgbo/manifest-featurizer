@@ -29,6 +29,7 @@ from config.feature_schema import (
 )
 from config.registry_schema import (
     COL_DEPENDENCIES, COL_RUNTIME, COL_DEVELOPMENT, COL_OPTIONAL, COL_REQUIREMENT,
+    COL_DURATION,
 )
 from src.utils import try_parse_json, to_str as _to_str
 
@@ -191,7 +192,8 @@ def featurize(df: pd.DataFrame) -> pd.DataFrame:
     정규화된 DataFrame → 피쳐 DataFrame.
     출력 컬럼은 config/feature_schema.py OUTPUT_COLUMNS 순서로 고정.
     """
-    parts = [df[ID_COLUMNS].reset_index(drop=True)]
+    parts = [df[ID_COLUMNS].reset_index(drop=True),
+             df[[COL_DURATION]].reset_index(drop=True)]
 
     # 이름
     parts.append(_string_features(df, "name"))
