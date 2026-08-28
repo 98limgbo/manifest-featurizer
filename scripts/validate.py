@@ -272,6 +272,17 @@ def validate_distribution() -> None:
         if not ok:
             wrong.append(col)
 
+    # duration: benign > malicious 예상 (정상 패키지가 더 복잡해 파싱 시간이 길 것)
+    if "duration" in df.columns:
+        m_dur = pd.to_numeric(mal["duration"], errors="coerce").mean()
+        b_dur = pd.to_numeric(ben["duration"], errors="coerce").mean()
+        ok = b_dur > m_dur
+        direction = "malicious < benign" if ok else "malicious >= benign  ← 예상 반대"
+        print(f"  [{'PASS' if ok else 'FAIL'}] duration: "
+              f"malicious={m_dur:.6f}s  benign={b_dur:.6f}s  ({direction})")
+        if not ok:
+            wrong.append("duration")
+
     if not wrong:
         _info("종합", "모든 피쳐가 예상 방향 일치")
     else:
