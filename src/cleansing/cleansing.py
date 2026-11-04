@@ -66,6 +66,35 @@ def _clean_scalar(s: str, exact: Set[str], prefix: Tuple[str, ...], stats: Clean
     return s
 
 
+def _clean_row_positional(
+    row: List[Any],
+    exact: Set[str],
+    prefix: Tuple[str, ...],
+    stats: CleanseStats,
+) -> Any:
+    """
+    중첩 리스트 한 묶음 정제 — 칸 위치 보존.
+    [이름, 이메일, URL]처럼 위치가 의미를 갖는 묶음에서 빈 칸을 지우면 뒤 칸이 앞으로 밀리므로,
+    빈 칸과 placeholder는 ""로 두고 제거·중복 제거하지 않는다.
+    모든 칸이 비어 있으면 None을 반환해 묶음 전체를 버린다.
+    """
+    cleaned: List[Any] = []
+    for x in row:
+        if x is None:
+            cleaned.append("")
+        elif isinstance(x, list):
+            sub = _clean_row_positional(x, exact, prefix, stats)
+            cleaned.append(sub if sub is not None else [])
+        elif isinstance(x, dict):
+            cleaned.append(_clean_dict_shallow(x, exact, prefix, stats))
+        else:
+            cleaned.append(_clean_scalar(str(x), exact, prefix, stats))
+
+    if any(c not in ("", [], {}) for c in cleaned):
+        return cleaned
+    return None
+
+
 def _clean_list(
     arr: List[Any],
     exact: Set[str],
@@ -90,8 +119,8 @@ def _clean_list(
             continue
 
         if isinstance(el, list):
-            nested = _clean_list(el, exact, prefix, stats)
-            if nested:
+            nested = _clean_row_positional(el, exact, prefix, stats)
+            if nested is not None:
                 out.append(nested)
             continue
 
