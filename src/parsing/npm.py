@@ -5,7 +5,10 @@
 from __future__ import annotations
 
 import json
+import re
 from typing import Any, Dict, List, Optional, Tuple
+
+_EMAIL_RE = re.compile(r"[^@\s]+@[^@\s]+\.[^@\s]+")
 
 
 def _as_str(v: Any) -> str:
@@ -35,6 +38,19 @@ def _person_to_triplet(person: Any) -> List[str]:
     s = _as_str(person).strip()
     if not s:
         return ["", "", ""]
+
+    # "foo@bar.com"처럼 <> 없이 이메일만 적은 문자열은 이름이 아니라 이메일로 처리
+    if "<" not in s:
+        core = s
+        paren_url = ""
+        if "(" in core and ")" in core:
+            a = core.find("(")
+            b = core.find(")", a + 1)
+            if b != -1:
+                paren_url = core[a + 1 : b].strip()
+                core = (core[:a] + core[b + 1 :]).strip()
+        if _EMAIL_RE.fullmatch(core):
+            return ["", core, paren_url]
 
     if "<" in s and ">" in s:
         left = s.find("<")
