@@ -40,6 +40,11 @@ def run() -> None:
         save_csv(parsed, parsed_path(registry))
         print(f"  파싱: {len(parsed)}행")
 
+        # 데이터가 없는 레지스트리는 건너뜀 (빈 DataFrame은 이후 단계에서 컬럼 오류 발생)
+        if parsed.empty:
+            print("  데이터 없음 → 건너뜀")
+            continue
+
         # 2. 정제
         cleansed, stats = cleanse(parsed, registry)
         save_csv(cleansed, cleansed_path(registry))
