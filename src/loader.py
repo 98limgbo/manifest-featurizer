@@ -4,6 +4,7 @@
 
 from __future__ import annotations
 
+import json
 import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -86,7 +87,9 @@ def _load_package(
         "label":    label,
         "duration": duration,
     }
-    row.update(fields)
+    # 리스트/딕셔너리는 JSON 문자열로 직렬화 (이후 정제·정규화 단계가 JSON 셀을 기대함)
+    for key, value in fields.items():
+        row[key] = json.dumps(value, ensure_ascii=False) if isinstance(value, (list, dict)) else value
     return row
 
 
