@@ -166,7 +166,7 @@ def parse_npm_package_json(text: str) -> Dict[str, Any]:
     반환 값은 스칼라 또는 JSON 직렬화 가능한 리스트로만 구성.
     """
     try:
-        pkg = json.loads(text)
+        pkg = json.loads(text.lstrip("﻿"))  # UTF-8 BOM 제거
     except json.JSONDecodeError as e:
         raise ValueError(f"Invalid JSON: {e}") from e
 
